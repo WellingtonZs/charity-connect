@@ -1,0 +1,100 @@
+.main-verif{
+    background-color: #181818;
+}
+
+.card-verif{
+    display: grid;
+    justify-items: left;
+    background-color: #fff;
+    max-width: 30%;
+    margin: 0 auto;
+    margin-top: 5em;
+    padding: 50px;
+    border-radius: 25px;
+}
+
+#button-verif{
+    background: linear-gradient(to right, #707cff 5%, #f952ff 100%);
+    background-color: #707cff;
+    border-radius: 16px;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 18px;
+    padding: 5px 38px;
+    text-decoration: none;
+    border: none;
+    margin-top: 10px;
+    width: 200px;
+    white-space: nowrap;
+}
+
+#button-verif:hover{
+    background: linear-gradient(to right, #f952ff 5%, #707cff 100%);
+    background-color: #f952ff;
+    transition-duration: 0.5s;
+    transform: scale(1.1);
+}
+
+#input{
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border-color: #8224fe;
+    background-color: #fff;
+    color: #8224fe;
+    font-weight: 600;
+    width: 100%;
+}
+
+#codigo{
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border-color: #8224fe;
+    background-color: #fff;
+    color: #8224fe;
+    font-weight: 600;
+    width: 100px;
+}
+
+
+#label{
+    display: grid;
+    justify-items: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    display: grid;
+    margin-top: 20px;
+}
+
+#nova_senha{
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border-color: #8224fe;
+    background-color: #fff;
+    color: #8224fe;
+    font-weight: 600;
+    width: 200px;
+}
+
+h1{
+    text-align: center;
+}
+
+@media screen and (max-width: 934px){
+    .card-verif {
+     width: 100%;
+     margin: 0;
+     padding:0;
+     max-width: 100%;
+     margin-top: 5em;
+     padding: 3em;
+    } 
+
+    #desc-verif{
+        max-width: 100%;
+    }
+ }

@@ -1,0 +1,231 @@
+.cadastroong {
+    background-color: #181818;
+    margin: 0;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.coracaocad {
+    text-align: center;
+}
+
+#coracao {
+    width: 150px;
+}
+
+.formulario-section {
+    background-color: #fff;
+    padding: 50px;
+    width: 60%;
+    margin-left: 20%;
+    border-radius: 25px;
+}
+
+#desc-h1 {
+    color: #000;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 50px;
+}
+
+#title-form {
+    text-align: center;
+}
+
+.form {
+    text-align: left;
+}
+
+.inputs-form {
+    margin-top: 50px;
+    display: flex;
+}
+
+#nome-input {
+    font-size: 20px;
+}
+
+input {
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border-color: #8224fe;
+    background-color: #fff;
+    color: #8224fe;
+    font-weight: 600;
+}
+
+#label {
+    margin-bottom: 20px;
+    display: grid;
+    margin-top: 1em;
+}
+
+.form-1 {
+    display: grid;
+    border-right: #8224fe;
+    border-left: #fff;
+    border-top: #fff;
+    border-bottom: #fff;
+    border-style: solid;
+    width: 100%;
+    padding-right: 30px;
+}
+
+.form-2 {
+    margin-left: 60px;
+}
+
+#cnpj {
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border-color: #8224fe;
+    background-color: #fff;
+    color: #8224fe;
+    font-weight: 600;
+
+}
+
+#checkbox {
+    margin-right: 15px;
+}
+
+.checkbox-div {
+    display: flex;
+}
+
+#textarea-form {
+    resize: none;
+    padding: 5px;
+    border: #8224fe;
+    border-style: solid;
+    border-radius: 10px;
+
+}
+
+.endereco-div {
+    display: grid;
+}
+
+#end {
+    width: 250px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border-color: #8224fe;
+    background-color: #fff;
+    color: #8224fe;
+    font-weight: 600;
+}
+
+#label-end {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+#botao-form {
+    background: linear-gradient(to right, #707cff 5%, #f952ff 100%);
+    background-color: #707cff;
+    border-radius: 16px;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 18px;
+    padding: 5px 3em;
+    text-decoration: none;
+    border: none;
+    margin-top: 40px;
+    margin-right: 1em;
+}
+
+#botao-form:hover {
+    background: linear-gradient(to right, #f952ff 5%, #707cff 100%);
+    background-color: #f952ff;
+    transition-duration: 0.5s;
+    transform: scale(1.1);
+
+}
+
+#link-form {
+    background: linear-gradient(to right, #707cff 5%, #f952ff 100%);
+    background-color: #707cff;
+    border-radius: 16px;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 18px;
+    padding: 8px 38px;
+    text-decoration: none;
+    border: none;
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+#link-form:hover {
+    background: linear-gradient(to right, #f952ff 5%, #707cff 100%);
+    background-color: #f952ff;
+    transition-duration: 0.5s;
+    transform: scale(1.1);
+}
+
+#selectuf{
+    padding-left: 10px;
+    padding-right: 10px;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: #8224fe;
+    background-color: #fff;
+    color: #8224fe;
+    font-weight: 600;
+}
+
+.btns {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+}
+
+@media screen and (max-width: 934px) {
+    .coracaofigure {
+        margin-top: 2em;
+    }
+    
+    .formulario-section {
+        width: 100%;
+        margin: 0;
+        padding: 1em;
+    }
+    #desc-h1 {
+        font-size: 2em;
+    }
+
+    .inputs-form {
+        display: block;
+    }
+
+    .form-2 {
+        border-right: #8224fe;
+        border-left: #fff;
+        border-top: #fff;
+        border-bottom: #fff;
+        border-style: solid;
+        margin: 0;
+        padding-right: 30px;
+    }
+
+    .btns {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+}
+
+.success-message {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+    color: #155724;
+  }

@@ -1,0 +1,111 @@
+body{
+    background: #181818;
+}
+
+#title-main {
+    color: white;
+    text-align: center;
+    padding: 3.5%;
+    font-size: 2.5em;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+.controller-user {
+    display: grid;
+    align-items: center;
+    border-radius: 100% ;
+}
+
+.label-user {
+    display: grid;
+    text-align: center;
+}
+
+.btn-user-escolha {
+    border: transparent;
+    background-color: transparent; 
+    border-radius: 100% ;
+}
+
+.icon-img-ativo{
+    width: 4em;
+    filter: invert(100%);
+    padding: 0.5em;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 100% ;
+    border-color: rgb(0, 0, 0);
+}
+
+span{
+    color: white;
+}
+
+.Gerenciamento{
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    background-color: #fff;
+    overflow-x: auto;
+    padding: 2em;
+    border-radius: 10px;
+    margin-bottom: 5%;
+}
+
+
+
+.thead{
+    font-weight: bold;
+    margin-bottom: 5em;
+
+}
+
+
+.demo th {
+    border:1px Nenhum #707bff;
+    padding:1em;
+    background:#fff;
+    font-weight: bold;
+    font-size: 1em;
+}
+.demo td {  
+    border:1px Nenhum #707bff;
+    padding: 1em;
+    text-align: center;
+}
+
+select{
+    background-color: #000;
+    color:#fff;
+    border-style: none;
+    border-radius: 5px;
+}
+
+.icon-img-ativo:hover {
+    border-color: #707bff;
+}
+
+.btn-user-escolha:active {
+    transform: scale(0.95);
+}
+
+@media (max-width:800px) {
+    
+
+    .container{
+        display: grid;
+        grid-template-columns: 100%;
+        justify-items: center;
+        gap: 3.5em;
+    }
+
+    .controller-user {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8rem;
+    }
+}

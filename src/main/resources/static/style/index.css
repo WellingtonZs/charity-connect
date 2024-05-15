@@ -1,0 +1,310 @@
+:root {
+    --titulo-homepage: #fff;
+    --roxo-destaque: #8224fe;
+    --cinza-medio: #212121;
+    --cinza-escuro: #181818;
+    --cinza-ainda-mais-escuro: #101010;
+}
+.background {
+    background: var(--cinza-ainda-mais-escuro);
+}
+
+.mainhome {
+    background-color: var(--cinza-ainda-mais-escuro);
+    padding: 5%;
+}
+
+.parte1home {
+    background-image: url(/assets/background1homepage.png);
+    background-size: cover;
+    background-position: fixed;
+    padding-top: 10em;
+    padding-bottom: 10em;
+}
+
+#titulo1-1 {
+    color: #fff;
+    text-align: center;
+    padding-top: 5%;
+    font-size: 50px;
+    letter-spacing: 8px;
+}
+
+#text-doe {
+    color: var(--titulo-homepage);
+    text-align: center;
+    padding-top: 1%;
+    font-size: 50px;
+}
+
+#desc-doe {
+    color: var(--titulo-homepage);
+    padding-top: 10px;
+    font-size: 30px;
+    font-weight: 400;
+    margin-left: 20%;
+    margin-right: 20%;
+    text-align: center;
+}
+
+#link-doe {
+    background: linear-gradient(to right, #707bff, #fa52ff);
+    color: var(--titulo-homepage);
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 25px;
+    color: #000;
+    border-radius: 15px;
+}
+
+#link-doe:hover {
+    background: linear-gradient(to left, #707bff, #fa52ff);
+    color: #fff;
+    transition-duration: 0.8s;
+}
+
+#link-button-doe {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 200px;
+}
+
+.oddshome {
+    background-color: #000;
+    display: flex;
+    margin-top: -10px;
+    padding-top: 150px;
+    padding-left: 30px;
+    padding-bottom: 100px;
+}
+
+#roupahome {
+    width: 630px;
+    padding: 20px;
+    padding-right: 20px;
+    border-radius: 30px;
+    opacity: 0.5;
+}
+
+#title-odds {
+    color: #fff;
+    font-size: 30px;
+    margin-right: 20px;
+    margin-top: 0.5em;
+    font-weight: lighter;
+}
+
+.avaliacao {
+    background-color: #393E46;
+    margin-top: -10px;
+    padding-top: 100px;
+    padding-left: 30px;
+    padding-bottom: 100px;
+    border-radius:25px;
+    text-align: center;
+    font-size: 2em;
+}
+
+#text-avaliacao {
+    color: #fff;
+    
+
+}
+
+#nome-doador {
+    color: #fff;
+    
+}
+
+.onu {
+    background: linear-gradient(to right, #707bff, #fa52ff);
+
+    text-align: center;
+    margin-top: 50px;
+    border-radius: 25px;
+
+    -webkit-box-shadow: 0px 68px 221px -43px rgba(130, 36, 254, 1);
+    -moz-box-shadow: 0px 68px 221px -43px rgba(130, 36, 254, 1);
+    box-shadow: 0px 68px 221px -43px rgba(130, 36, 254, 1);
+
+    margin-bottom: 5rem;
+
+}
+
+.odslogos {
+    padding-top: 70px;
+}
+
+#logoods {
+    width: 200px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 25px;
+}
+
+details {
+    color: #fff;
+    font-family: helvetica;
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+.desc-ods {
+    padding: 50px;
+}
+
+#text-desc-ods {
+    font-size: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-top: 30px;
+}
+
+.div-gradiente-home {
+    background: linear-gradient(to right, #707bff, #fa52ff);
+    width: 100%;
+    height: 10px;
+    margin-top: -10px;
+    margin-left: 0;
+    box-shadow: 10px 10px 61px 10px #8224fe;
+
+}
+
+@media screen and (max-width: 934px) {
+    .mainhome {
+      padding: 0;
+    }
+
+    #titulo1-1 {
+        font-size: 1.7em;
+        font-weight: 900;
+    }
+
+    #text-doe {
+        font-size: 1.50em;
+    }
+
+    .doeaquihome {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+
+    #desc-doe {
+        width: 90%;
+        font-size: 1.5em;
+    }
+    
+    .oddshome {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #roupahome {
+        width: 100%;
+    }
+
+    #title-odds {
+        text-align: center;
+    }
+
+    .odslogos {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        place-items: center;
+
+    }
+
+    .avaliacao {
+      display: flex;
+      flex-direction: column;
+      align-items: c;
+      padding: 0;
+      height: 20em;
+      margin-bottom: 2em;
+        
+    }
+
+    #text-avaliacao {
+        margin-top: 4.5em;
+        width: 100%;
+        font-size: 0.7em;
+    }
+}
+
+.container {
+    padding: 4rem;
+
+}
+
+.slider-wrapper {
+    position: relative;
+    max-width: 45rem;
+    margin: 0 auto;
+
+}
+
+.slider {
+    display: flex;
+    aspect-ratio: 16/9;
+    overflow-x: auto;
+    width: 100%;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    box-shadow: 0 1, 5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    border-radius: 1rem;
+    scrollbar-color: #f00;
+}
+
+.slider img {
+    flex: 1 0 100%;
+    scroll-snap-align: start;
+    object-fit: cover;
+    padding-bottom: 10px;
+}
+
+.slider-nav {
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    margin-bottom: 20px;
+}
+
+.slider-nav a {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.5;
+    transition: opacity ease 250ms;
+}
+
+.slider-nav a:hover {
+    opacity: 1;
+}
+
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #ffffff #000000;
+}
+
+*::-webkit-scrollbar {
+    width: 15px;
+
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 0px solid #ffffff;
+}

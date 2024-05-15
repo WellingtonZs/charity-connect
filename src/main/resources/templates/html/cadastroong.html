@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="/script/ongcad.js"></script>
+    <script type="text/javascript" src="/script/headerbotaohref.js"></script>
+    <link href="/style/cadastroong.css" rel="stylesheet">
+    <link href="/style/header.css" rel="stylesheet">
+    <link href="/style/footer.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/backgroundappshort_Prancheta 1.png" type="image/x-icon">
+    <link href="/style/reset.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <title>Cadastro |Charity Connect</title>
+</head>
+
+<body>
+    <header id="cabecalho">
+        <a href="/html/index.html" id="logo"><img src="/assets/charityConnect.png" style="width: 16rem;" alt=""></a>
+        <nav id="nav">
+          <button id="btn-mobile">
+          <span id="hambuguer"></span>
+          </button>
+          <ul id="menu">
+            <li><a id="itens" href="/html/index.html">Home</a></li>
+            <li><a id="itens" href="/html/catalogo.html">Catálogo</a></li>            <li><a id="itens" href="/html/perfilong.html">Meu Perfil ONG</a></li>
+            <li><a id="itens" href="/html/sobrenos.html">Sobre nós</a></li>
+            <li><a style="--clr:#707bff" class="btn-entrar" id="itens" href="/html/login.html"><span>Entrar</span></a></li>
+          </ul>
+        </nav>
+      </header>
+
+
+
+    <main class="cadastroong">
+
+        <div class="coracaocad">
+            <figure class="coracaofigure">
+                <img id="coracao" src="/assets/shortlogocharitycloset.png">
+            </figure>
+        </div>
+
+        <section class="formulario-section">
+
+            <form id="myForm" class="form" action="" method="post" onsubmit="return validarForm()">
+
+                <div class="desc-form">
+
+                    <h1 id="desc-h1">
+                        Charity Connect
+                    </h1>
+                    <h2 id="title-form">
+                        Cadastro de ONG
+                    </h2>
+
+                </div>
+
+                <section class="inputs-form">
+
+                    <div class="form-1">
+
+                        <label id="label">
+                            <h1 id="nome-input">
+                                Nome da ONG
+                            </h1>
+                            <input id="inputnomeong" type="text" name="nome_ong" maxlength="100"
+                                placeholder="Digite o nome da ONG" required pattern="[A-Za-z]+">
+                        </label>
+                        <label id="label">
+                            <h1 id="nome-input">
+                                Nome do Representante
+                            </h1>
+                            <input id="inputnomerep" type="text" name="nome_rep" maxlength="100"
+                                placeholder="Digite o nome do Representante" required pattern="[A-Za-z]+[A-Za-zÀ-ÿ\s]+">
+                        </label>
+                        <label id="label">
+                            <h1 id="nome-input">
+                                Email da organização
+                            </h1>
+                            <input id="inputemail" type="email" name="email_ong" maxlength="100"
+                                placeholder="email@email.com" required>
+                        </label>
+                        
+                        <label id="label">
+                            <h1 id="nome-input">
+                                CNPJ
+                            </h1>
+                            <input type="text" name="cnpj_ong" id="cnpj" placeholder="CNPJ (apenas números)" required
+                            pattern="[0-9]{14}" maxlength="14">
+                        </label>
+
+                        
+
+                        <label id="label">
+                            <h1 id="nome-input">
+                                Número de celular
+                            </h1>
+                            <input type="tel" id="inputnum" name="celular" placeholder="(XX) XXXXX-XXXX" oninput="mascara(this)" maxlength="14" required>
+                        </label>
+
+                        <div class="endereco-div">
+
+                            <label id="label-end">CEP</label>
+                            <input type="text" id="cep" name="cep" placeholder="00000-000" oninput="mascaraCEP(this)" maxlength="9" required>
+
+                            <label id="label"> UF
+                            <select id="selectuf"> 
+                                <option value="" disabled selected>Selecione a UF</option>
+                                <option value="AC">Acre (AC)</option>
+                                <option value="AL">Alagoas (AL)</option>
+                                <option value="AP">Amapá (AP)</option>
+                                <option value="AM">Amazonas (AM)</option>
+                                <option value="BA">Bahia (BA)</option>
+                                <option value="CE">Ceará (CE)</option>
+                                <option value="DF">Distrito Federal (DF)</option>
+                                <option value="ES">Espírito Santo (ES)</option>
+                                <option value="GO">Goiás (GO)</option>
+                                <option value="MA">Maranhão (MA)</option>
+                                <option value="MT">Mato Grosso (MT)</option>
+                                <option value="MS">Mato Grosso do Sul (MS)</option>
+                                <option value="MG">Minas Gerais (MG)</option>
+                                <option value="PA">Pará (PA)</option>
+                                <option value="PB">Paraíba (PB)</option>
+                                <option value="PR">Paraná (PR)</option>
+                                <option value="PE">Pernambuco (PE)</option>
+                                <option value="PI">Piauí (PI)</option>
+                                <option value="RJ">Rio de Janeiro (RJ)</option>
+                                <option value="RN">Rio Grande do Norte (RN)</option>
+                                <option value="RS">Rio Grande do Sul (RS)</option>
+                                <option value="RO">Rondônia (RO)</option>
+                                <option value="RR">Roraima (RR)</option>
+                                <option value="SC">Santa Catarina (SC)</option>
+                                <option value="SP">São Paulo (SP)</option>
+                                <option value="SE">Sergipe (SE)</option>
+                                <option value="TO">Tocantins (TO)</option>
+                            </select>
+                        </label>
+ 
+                        </div>
+
+                    </div>
+
+                    <div class="form-2">
+
+                        <label id="label">
+                            <h1 id="nome-input">Descrição de Atuação</h1>
+                            <textarea id="textarea-form" cols="40" rows="6" maxlength="200">
+
+                            </textarea>
+
+                        </label>
+                        <br>
+
+                       
+                        <br>
+                        <label id="label">
+
+                            <h1 id="nome-input">
+                                Upload de foto de perfil
+                            </h1>
+                            <input type="file" id="foto" name="foto" accept="image/*" required>
+                        </label>
+                        <br>
+                        <label id="label">
+                            <h1 id="nome-input">Senha: </h1>
+                            <input type="password" id="inputsenha" name="senha" maxlength="100" required>
+                        </label>
+                        <br>
+                        <label id="label">
+                            <h1 id="nome-input"> Confirmação de Senha:</h1>
+                            <input type="password" id="inputsenha1" name="confirmar_senha" maxlength="100" required>
+                        </label>
+
+                        <div class="g-recaptcha" data-sitekey="6Lf5Uc8pAAAAAFC3sVTK7vsUL7q-fIjmHaihZ15N"></div>
+
+                        <div id="successMessage" class="success-message">A confirmação do cadastro será enviada por email.</div>
+
+                    </div>
+
+                </section>
+
+                <div class="btns">
+                    <div>
+                        <button id="botao-form" type="submit" onclick="validarCNPJ()"
+                        data-sitekey="reCAPTCHA_site_key" 
+                        data-callback='onSubmit' 
+                        data-action='submit'
+                        >Cadastrar</button>
+                    </div>
+                    <div>
+                        <button id="botao-form" type="reset">Reset</button>
+                    </div>
+                </div>
+
+            </form>
+
+        </section>
+
+        <div style="height:50px;background-color: #181818;">
+        </div>
+
+    </main>
+
+    <footer class="footergeral">
+
+        <section class="footercontent">
+
+            <figure class="logofooter">
+                <img id="logofooter" src="/assets/shortlogocharitycloset.png">
+                <h1 id="text-logo-footer">
+                    Charity Connect.
+                </h1>
+            </figure>
+
+            <div class="footerpart2">
+                <a id="link-footer-pt2" href="sobrenos.html">Sobre o Projeto</a>
+                <a id="link-footer-pt2" href="contato.html">Contato</a>
+            </div>
+
+            <div class="footerpart3">
+                <a id="link-footer-pt3" href="politicas.html">Política de Privacidade</a>
+                <a id="link-footer-pt3" href="termosdeuso.html">Termos de Uso</a>
+            </div>
+
+            <div class="divisaodofooter2">
+                <div class="origemdotrabalho">
+                    <div class="integrantesdiv">
+                        <h2 id="itensfooter2">Integrantes:
+                            <li id="itemfooter">02 Cauã Santana</li>
+                            <li id="itemfooter">07 Gustavo Alves</li>
+                            <li id="itemfooter">08 Gustavo Gomes</li>
+                            <li id="itemfooter">13 Leandro Afonso Niches</li>
+                            <li id="itemfooter">23 Nathalia Lima </li>
+                            <li id="itemfooter">28 Ruan Pablo Braga Mendes</li>
+                            <li id="itemfooter">32 Wellington Cavalcante </li>                        </h2>
+                    </div>
+                    <div class="profediscfooter">
+                        <h2 id="itensfooter2">ITB - FIEB
+                            <li id="itemfooter">Brasílio Flores de Azevedo</li>
+                        </h2>
+                        <h2 id="itensfooter2">Curso
+                            <li id="itemfooter">Informática 2022 - 2024</li>
+                        </h2>
+                    </div>
+                </div>
+
+        </section>
+
+    </footer>
+
+    <script>
+        function onSubmit(token) {
+          document.getElementById("demo-form").submit();
+        }
+      </script>
+
+    <script>
+
+function mascara(telefone) {
+    telefone.value = telefone.value
+      .replace(/\D/g, '') // Remove todos os caracteres não numéricos
+      .replace(/^(\d{2})(\d)/g, '($1) $2') // Adiciona parênteses em volta do DDD
+      .replace(/(\d)(\d{4})$/, '$1-$2'); // Adiciona hífen entre os últimos 4 dígitos
+  }
+
+        document.getElementById('inputsenha').addEventListener('input', function() {
+            var senha = document.getElementById('inputsenha').value;
+            
+            // Verifica se a senha contém pelo menos um caractere especial
+            var specialChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            var hasSpecialChar = specialChars.test(senha);
+        
+            // Verifica se a senha contém pelo menos um número
+            var hasNumber = /\d/.test(senha);
+        
+            // Verifica se a senha contém pelo menos uma letra maiúscula
+            var hasUpperCase = /[A-Z]/.test(senha);
+        
+            if (hasSpecialChar && hasNumber && hasUpperCase) {
+                document.getElementById('inputsenha').setCustomValidity('');
+            } else {
+                document.getElementById('inputsenha').setCustomValidity('A senha deve conter pelo menos um caractere especial, um número e uma letra maiúscula.');
+            }
+        });
+        
+        document.getElementById('inputsenha1').addEventListener('input', function() {
+            var senha = document.getElementById('inputsenha').value;
+            var confirmarSenha = document.getElementById('inputsenha1').value;
+            var senhaError = document.getElementById('senha-error');
+        
+            if (senha !== confirmarSenha) {
+                senhaError.textContent = 'As senhas não coincidem.';
+                document.getElementById('inputsenha1').setCustomValidity('As senhas não coincidem.');
+            } else {
+                senhaError.textContent = '';
+                document.getElementById('inputsenha1').setCustomValidity('');
+            }
+        });
+                
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+    var textareaValue = document.getElementById('textarea-form').value;
+    if (textareaValue.trim().length < 20) {
+        event.preventDefault(); // Impede o envio do formulário
+        alert("A descrição de atuação deve ter pelo menos 20 caracteres.");
+    }
+});
+        
+
+function validarForm() {
+    var respostaRecaptcha = grecaptcha.getResponse();
+    if (respostaRecaptcha.length == 0) {
+      // reCAPTCHA não foi preenchido
+      alert('Por favor, preencha o reCAPTCHA antes de enviar o formulário.');
+      return false; // Impede o envio do formulário
+    }
+    // reCAPTCHA foi preenchido, permita o envio do formulário
+    return true;
+  }
+
+  function validarCNPJ(){
+    var successMessage = document.getElementById("successMessage");
+    successMessage.style.display = "block";
+
+    // Retornando false para impedir o envio do formulário
+    return false;
+
+  }
+
+  
+  function mascaraCEP(cep) {
+    cep.value = cep.value
+      .replace(/\D/g, '') // Remove todos os caracteres não numéricos
+      .replace(/(\d{5})(\d)/, '$1-$2'); // Adiciona hífen após os primeiros 5 dígitos
+  }
+
+                </script>
+
+</body>
+<script type="text/javascript" src="/script/menu.js"></script>
+</html>
+
+<!--
+CHAVE DO SITE: 6Lf5Uc8pAAAAAFC3sVTK7vsUL7q-fIjmHaihZ15N
+CHAVE SECRETA: 6Lf5Uc8pAAAAABsD9LHee_5_blbG0gtcKE9ajMTr
+
+-->
