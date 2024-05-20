@@ -20,7 +20,7 @@ public class ONG {
 	private String senha;
 	private String telefone;
 	private String descAStuacao;
-	private Byte[] foto;
+	private byte[] foto;
 	private String cep;
 	private LocalDateTime dataCadastro;
 	private String sobreNos;
@@ -63,10 +63,10 @@ public class ONG {
 	public void setDescAStuacao(String descAStuacao) {
 		this.descAStuacao = descAStuacao;
 	}
-	public Byte[] getFoto() {
+	public byte[] getFoto() {
 		return foto;
 	}
-	public void setFoto(Byte[] foto) {
+	public void setFoto(byte[] foto) {
 		this.foto = foto;
 	}
 	public String getCep() {
