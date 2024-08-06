@@ -1,4 +1,4 @@
-package br.com.inf3fm.charityconnect.entity;
+package br.com.inf3fm.charityconnect.model.entity;
 
 import java.time.LocalDateTime;
 
@@ -19,13 +19,14 @@ public class AprovacaoONG {
 	private long id;
 	private LocalDateTime dataAprovacao;
 	private String statusAprovacao;
+	
 	@ManyToOne
 	@JoinColumn(name = "admin_id")
 	private Administrador administrador;
+	
 	@ManyToOne
 	@JoinColumn(name = "ong_id")
 	private ONG ong;
-	
 
 	public long getId() {
 		return id;
@@ -58,7 +59,7 @@ public class AprovacaoONG {
 	public void setAdministrador(Administrador administrador) {
 		this.administrador = administrador;
 	}
-	
+
 	public ONG getOng() {
 		return ong;
 	}
@@ -66,5 +67,7 @@ public class AprovacaoONG {
 	public void setOng(ONG ong) {
 		this.ong = ong;
 	}
+	
+	
 
 }

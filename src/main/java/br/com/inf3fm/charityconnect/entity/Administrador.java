@@ -1,4 +1,4 @@
-package br.com.inf3fm.charityconnect.entity;
+package br.com.inf3fm.charityconnect.model.entity;
 
 import java.time.LocalDateTime;
 
