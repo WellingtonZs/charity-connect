@@ -19,14 +19,16 @@ public class ONG {
 	private String email;
 	private String senha;
 	private String telefone;
-	private String descAStuacao;
-	private Byte[] foto;
+	private String descAtuacao;
+	private byte[] foto;
 	private String cep;
 	private LocalDateTime dataCadastro;
 	private String sobreNos;
 	private String uf;
 	private String cnpj;
 	private String statusONG;
+	
+	
 	public long getId() {
 		return id;
 	}
@@ -57,16 +59,16 @@ public class ONG {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	public String getDescAStuacao() {
-		return descAStuacao;
+	public String getDescAtuacao() {
+		return descAtuacao;
 	}
-	public void setDescAStuacao(String descAStuacao) {
-		this.descAStuacao = descAStuacao;
+	public void setDescAStuacao(String descAtuacao) {
+		this.descAtuacao = descAtuacao;
 	}
-	public Byte[] getFoto() {
+	public byte[] getFoto() {
 		return foto;
 	}
-	public void setFoto(Byte[] foto) {
+	public void setFoto(byte[] foto) {
 		this.foto = foto;
 	}
 	public String getCep() {
