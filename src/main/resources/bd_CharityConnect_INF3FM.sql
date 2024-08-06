@@ -87,6 +87,10 @@ CREATE TABLE Categoria
 INSERT INTO ONG (nome, email, senha, telefone, descAtuacao, foto, cep, dataCadastro, sobreNos, uf, cnpj, statusONG) 
 VALUES ('zezo', 'aaa@aaa.com', '111', '11952303304', 'somos uma ong teste', null, '1231234', '2021-01-08T00:00:00', 'aaaa', 'rj', '11111111111111', 'ativo')
 
+INSERT INTO ONG (nome, email, senha, telefone, descAtuacao, foto, cep, dataCadastro, sobreNos, uf, cnpj, statusONG) 
+VALUES ('leandro', 'bbb@aaa.com', '222', '11952303307', 'somos uma ong teste 2', null, '1231237', '2022-02-08T00:00:00', 'bbbb', 'sp', '22222222222222', 'ativo')
+
+
 --Administrador:
 INSERT INTO Administrador (cpf, email, nome, sobrenome, senha, uf, dataNasc, cep, dataCadastro, telefone, nivelAcesso, foto, statusAdmin) 
 VALUES ('11111111111', 'AA@AA.COM', 'aaa', 'aaa', '11212', 'pe', '2021-01-08T00:00:00', '1234567', '2021-01-08T00:00:00', '11952303304', 'admin', null, 'ativo')
