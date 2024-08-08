@@ -21,5 +21,11 @@ public class ReprovacaoONGService {
 		List<ReprovacaoONG> reprovacoes = reprovacaoongRepository.findAll();
 		return reprovacoes;
 	}
+	
+	public ReprovacaoONG findById(long id) {
+		ReprovacaoONG reprovacoes = reprovacaoongRepository.findById(id).orElseThrow();
+		
+		return reprovacoes;
+	}
 
 }

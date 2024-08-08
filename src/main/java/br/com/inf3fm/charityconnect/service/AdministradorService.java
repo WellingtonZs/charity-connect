@@ -21,5 +21,11 @@ public class AdministradorService {
 		List<Administrador> administradores = administradorRepository.findAll();
 		return administradores;
 	}
+	
+	public Administrador findById(long id) {
+		Administrador administradores = administradorRepository.findById(id).orElseThrow();
+		
+		return administradores;
+	}
 
 }

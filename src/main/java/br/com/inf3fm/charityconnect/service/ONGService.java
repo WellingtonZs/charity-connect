@@ -21,5 +21,11 @@ public class ONGService {
 		List<ONG> ongs = ongRepository.findAll();
 		return ongs;
 	}
+	
+	public ONG findById(long id) {
+		ONG ongs = ongRepository.findById(id).orElseThrow();
+		
+		return ongs;
+	}
 
 }

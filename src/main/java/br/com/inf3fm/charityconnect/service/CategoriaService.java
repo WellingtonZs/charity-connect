@@ -21,4 +21,10 @@ public class CategoriaService {
 		List<Categoria> categorias = categoriaRepository.findAll();
 		return categorias;
 	}
+	
+	public Categoria findById(long id) {
+		Categoria categorias = categoriaRepository.findById(id).orElseThrow();
+		
+		return categorias;
+	}
 }
