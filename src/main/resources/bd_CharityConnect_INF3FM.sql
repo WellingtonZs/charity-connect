@@ -90,6 +90,8 @@ VALUES ('zezo', 'aaa@aaa.com', '111', '11952303304', 'somos uma ong teste', null
 INSERT INTO ONG (nome, email, senha, telefone, descAtuacao, foto, cep, dataCadastro, sobreNos, uf, cnpj, statusONG) 
 VALUES ('leandro', 'bbb@aaa.com', '222', '11952303307', 'somos uma ong teste 2', null, '1231237', '2022-02-08T00:00:00', 'bbbb', 'sp', '22222222222222', 'ativo')
 
+INSERT INTO ONG (nome, email, senha, telefone, descAtuacao, foto, cep, dataCadastro, sobreNos, uf, cnpj, statusONG) 
+VALUES ('caua', 'ccc@aaa.com', '333', '11952303388', 'somos uma ong teste 3', null, '1231237', '2022-02-08T00:00:00', 'cccc', 'go', '33333333333333', 'ativo')
 
 --Administrador:
 INSERT INTO Administrador (cpf, email, nome, sobrenome, senha, uf, dataNasc, cep, dataCadastro, telefone, nivelAcesso, foto, statusAdmin) 
