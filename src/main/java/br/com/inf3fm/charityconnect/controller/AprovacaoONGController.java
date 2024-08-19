@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,9 +34,17 @@ public class AprovacaoONGController {
 	@GetMapping("findById/{id}")
 	public ResponseEntity<AprovacaoONG> findById(@PathVariable long id) {
 		
-		AprovacaoONG aprovacoes = aprovacaoongService.findById(id);
+		AprovacaoONG aprovacao = aprovacaoongService.findById(id);
 		
-		return new ResponseEntity<AprovacaoONG>(aprovacoes, HttpStatus.OK);
+		return new ResponseEntity<AprovacaoONG>(aprovacao, HttpStatus.OK);
+	}
+	
+	@PostMapping("create")
+	public ResponseEntity<AprovacaoONG> create(@RequestBody AprovacaoONG aprovacaoong) {
+		
+		AprovacaoONG _aprovacaoong = aprovacaoongService.create(aprovacaoong);
+		
+		return new ResponseEntity<AprovacaoONG>(_aprovacaoong, HttpStatus.OK);
 	}
 
 }

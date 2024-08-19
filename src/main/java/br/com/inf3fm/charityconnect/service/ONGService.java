@@ -1,11 +1,14 @@
 package br.com.inf3fm.charityconnect.service;
 
+import java.time.LocalDateTime;
+import java.util.Base64;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import br.com.inf3fm.charityconnect.entity.ONG;
 import br.com.inf3fm.charityconnect.repository.ONGRepository;
+import jakarta.transaction.Transactional;
 
 @Service
 public class ONGService {
@@ -23,9 +26,21 @@ public class ONGService {
 	}
 	
 	public ONG findById(long id) {
-		ONG ongs = ongRepository.findById(id).orElseThrow();
+		ONG ong = ongRepository.findById(id).orElseThrow();
 		
-		return ongs;
+		return ong;
+	}
+	
+	@Transactional
+	public ONG create(ONG ong) {
+		String senha = Base64.getEncoder().encodeToString(
+				ong.getSenha().getBytes());
+		ong.setSenha(senha);
+		
+		ong.setDataCadastro(LocalDateTime.now());
+		ong.setStatusONG("ATIVO");
+		
+		return ongRepository.save(ong);
 	}
 
 }

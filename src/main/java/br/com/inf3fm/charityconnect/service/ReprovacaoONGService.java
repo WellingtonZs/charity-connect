@@ -1,11 +1,13 @@
 package br.com.inf3fm.charityconnect.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import br.com.inf3fm.charityconnect.entity.ReprovacaoONG;
 import br.com.inf3fm.charityconnect.repository.ReprovacaoONGRepository;
+import jakarta.transaction.Transactional;
 
 @Service
 public class ReprovacaoONGService {
@@ -23,9 +25,18 @@ public class ReprovacaoONGService {
 	}
 	
 	public ReprovacaoONG findById(long id) {
-		ReprovacaoONG reprovacoes = reprovacaoongRepository.findById(id).orElseThrow();
+		ReprovacaoONG reprovacao = reprovacaoongRepository.findById(id).orElseThrow();
 		
-		return reprovacoes;
+		return reprovacao;
+	}
+	
+	@Transactional
+	public ReprovacaoONG create(ReprovacaoONG reprovacaoong) {
+		
+		reprovacaoong.setDataReprovacao(LocalDateTime.now());
+		reprovacaoong.setStatusReprovacao("REPROVADA");
+		
+		return reprovacaoongRepository.save(reprovacaoong);
 	}
 
 }
