@@ -3,6 +3,7 @@ package br.com.inf3fm.charityconnect.service;
 import java.time.LocalDateTime;
 import java.util.Base64;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -31,6 +32,12 @@ public class ONGService {
 		return ong;
 	}
 	
+	public ONG findByEmail(String email) {
+		ONG ong = ongRepository.findByEmail(email);
+		
+		return ong;
+	}
+	
 	@Transactional
 	public ONG create(ONG ong) {
 		String senha = Base64.getEncoder().encodeToString(
@@ -41,6 +48,67 @@ public class ONGService {
 		ong.setStatusONG("ATIVO");
 		
 		return ongRepository.save(ong);
+	}
+	
+	@Transactional
+	public ONG signin(String email, String senha) {
+		
+		ONG ong = ongRepository.findByEmail(email);
+		if (ong != null) {
+		if (ong.getStatusONG().equals("ATIVA")) {
+			byte[] decodedPass = Base64.getDecoder()
+					.decode(ong.getSenha());
+			if(new String(decodedPass).equals(senha)) {
+				return ong;
+				}
+			}
+		}
+		return null;
+	}
+	
+	@Transactional
+	public ONG inativar(long id) {
+		Optional<ONG> _ong = ongRepository.findById(id);
+		
+		if (_ong.isPresent()) {
+			ONG ongAtualizada = _ong.get();
+			ongAtualizada.setStatusONG("INATIVO");
+			
+			return ongRepository.save(ongAtualizada);
+		}
+		return null;
+	}
+	
+	@Transactional
+	public ONG reativar(long id) {
+		Optional<ONG> _ong = ongRepository.findById(id);
+		
+		if (_ong.isPresent()) {
+			ONG ongAtualizada = _ong.get();
+			
+			String senha = Base64.getEncoder()
+					.encodeToString("12345678".getBytes());
+			ongAtualizada.setSenha(senha);
+			ongAtualizada.setDataCadastro(LocalDateTime.now());
+			ongAtualizada.setStatusONG("ATIVA");
+			
+			return ongRepository.save(ongAtualizada);
+		}
+		return null;
+	}
+	
+	@Transactional
+	public ONG alterarSenha(long id, ONG ong) {
+		Optional<ONG> _ong = ongRepository.findById(id);
+		
+		if (_ong.isPresent()) {
+			ONG ongAtualizada = _ong.get();
+			String senha = Base64.getEncoder().encodeToString(ong.getSenha().getBytes());
+			ongAtualizada.setSenha(senha);
+			
+			return ongRepository.save(ongAtualizada);
+		}
+		return null;
 	}
 
 }

@@ -11,5 +11,7 @@ import br.com.inf3fm.charityconnect.entity.ONG;
 public interface ONGRepository extends JpaRepository<ONG, Long> {
 	
 	List<ONG> findAll();
+	
+	ONG findByEmail(String email);
 
 }

@@ -68,7 +68,7 @@ public class AdministradorController {
 	}
 	
 	@PutMapping("inativar/{id}")
-	public ResponseEntity<Administrador> reativar(
+	public ResponseEntity<Administrador> inativar(
 			@PathVariable long id) {
 		
 		Administrador _administrador = administradorService.inativar(id);
@@ -76,6 +76,27 @@ public class AdministradorController {
 		return new ResponseEntity<Administrador>(
 				_administrador, HttpStatus.OK);
 		
+	}
+	
+	@PutMapping("reativar/{id}")
+	public ResponseEntity<Administrador> reativar(
+			@PathVariable long id) {
+		
+		Administrador _administrador = administradorService.reativar(id);
+		
+		return new ResponseEntity<Administrador>(
+				_administrador, HttpStatus.OK);
+	}
+	
+	@PutMapping("alterarsenha/{id}")
+	public ResponseEntity<Administrador> alterarSenha(
+			@PathVariable long id,
+			@RequestBody Administrador administrador) {
+		
+		Administrador _administrador = administradorService.alterarSenha(id, administrador);
+		
+		return new ResponseEntity<Administrador>(
+				_administrador, HttpStatus.OK);
 	}
 
 }
