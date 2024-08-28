@@ -1,6 +1,7 @@
 package br.com.inf3fm.charityconnect.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -32,5 +33,17 @@ public class CategoriaService {
 	@Transactional
 	public Categoria create(Categoria categoria) {
 		return categoriaRepository.save(categoria);
+	}
+	
+	@Transactional
+	public Categoria update(Long id) {
+		Optional<Categoria> _categoria = categoriaRepository.findById(id);
+		
+		if(_categoria.isPresent()) {
+			Categoria categoriaAtualizada = _categoria.get();
+			
+		return categoriaRepository.save(categoriaAtualizada);
+		}
+		return null;
 	}
 }

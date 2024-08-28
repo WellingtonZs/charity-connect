@@ -2,6 +2,7 @@ package br.com.inf3fm.charityconnect.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -37,6 +38,20 @@ public class AprovacaoONGService {
 		aprovacaoong.setStatusAprovacao("APROVADO");
 		
 		return aprovacaoongRepository.save(aprovacaoong);
+	}
+	
+	@Transactional
+	public AprovacaoONG update(long id) {
+		Optional<AprovacaoONG> _aprovacaoong = aprovacaoongRepository.findById(id);
+		
+		if (_aprovacaoong.isPresent()) {
+			AprovacaoONG aprovacaoongAtualizada = _aprovacaoong.get();
+			aprovacaoongAtualizada.setDataAprovacao(LocalDateTime.now());
+			aprovacaoongAtualizada.setStatusAprovacao("APROVADA");
+			
+			return aprovacaoongRepository.save(aprovacaoongAtualizada);
+		}
+		return null;
 	}
 
 }
