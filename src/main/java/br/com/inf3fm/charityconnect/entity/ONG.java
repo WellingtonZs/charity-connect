@@ -16,6 +16,7 @@ public class ONG {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String nome;
+	private String nomeRep;
 	private String email;
 	private String senha;
 	private String telefone;
@@ -41,6 +42,14 @@ public class ONG {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
+	public String getNomeRep() {
+		return nomeRep;
+	}
+	public void setNomeRep(String nomeRep) {
+		this.nomeRep = nomeRep;
+	}
+	
 	public String getEmail() {
 		return email;
 	}

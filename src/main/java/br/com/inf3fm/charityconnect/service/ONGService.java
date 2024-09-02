@@ -1,11 +1,13 @@
 package br.com.inf3fm.charityconnect.service;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import br.com.inf3fm.charityconnect.entity.ONG;
 import br.com.inf3fm.charityconnect.repository.ONGRepository;
@@ -109,6 +111,28 @@ public class ONGService {
 			return ongRepository.save(ongAtualizada);
 		}
 		return null;
+	}
+
+	public ONG create(MultipartFile file, ONG ong) {
+		
+		if (file != null && file.getSize() > 0) {
+			try {
+				ong.setFoto(file.getBytes());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else {
+			ong.setFoto(null);
+		}
+		
+		String senha = Base64.getEncoder().encodeToString(
+				ong.getSenha().getBytes());
+		ong.setSenha(senha);
+		
+		ong.setDataCadastro(LocalDateTime.now());
+		ong.setStatusONG("ATIVO");
+		
+		return ongRepository.save(ong);
 	}
 
 }

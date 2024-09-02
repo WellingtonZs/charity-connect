@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import br.com.inf3fm.charityconnect.entity.ONG;
 import br.com.inf3fm.charityconnect.service.ONGService;
@@ -50,8 +52,11 @@ public class ONGController {
 	}
 	
 	@PostMapping("create")
-	public ResponseEntity<ONG> create(@RequestBody ONG ong) {
-		ONG _ong = ongService.create(ong);
+	public ResponseEntity<ONG> create(
+			@RequestParam(value = "file", required = false) MultipartFile file,
+			@ModelAttribute("ong") ONG ong) {
+		
+		ONG _ong = ongService.create(file, ong);
 		
 		return new ResponseEntity<ONG>(_ong,HttpStatus.OK);
 	}

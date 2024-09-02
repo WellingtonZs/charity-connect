@@ -41,7 +41,7 @@ CREATE TABLE ONG
 	telefone		VARCHAR(20)		    NOT NULL,
 	descAtuacao		VARCHAR(300)	    NOT NULL,
 	foto			VARBINARY(MAX)	    NULL,
-	cep				VARCHAR(7)		    NOT NULL,
+	cep				VARCHAR(8)		    NOT NULL,
 	dataCadastro	DATETIME		    NOT NULL,
 	sobreNos		VARCHAR(200)	    NOT NULL,
 	uf				CHAR(2)			    NOT NULL,
@@ -125,6 +125,7 @@ VALUES ('TESTE', '2021-01-08T00:00:00', 'PERGUNTA TESTE', 'NOME', 'SOBRENOME', '
 
 --ONG
 SELECT * FROM ONG
+
 --Administrador
 SELECT * FROM Administrador
 --Categoria
