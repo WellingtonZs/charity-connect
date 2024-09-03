@@ -22,7 +22,7 @@ CREATE TABLE Administrador
 	senha			VARCHAR(100)	    NOT NULL,
 	uf				CHAR(2)			    NOT NULL,
 	dataNasc		DATETIME		    NOT NULL,
-	cep				VARCHAR(7)		    NOT NULL,
+	cep				VARCHAR(8)		    NOT NULL,
 	dataCadastro	DATETIME		    NULL,
 	telefone		VARCHAR(20)		    NOT NULL,
 	nivelAcesso		CHAR(10)		    NULL, --ADMIN ou USER
