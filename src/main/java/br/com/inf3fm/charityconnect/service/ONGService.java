@@ -47,6 +47,7 @@ public class ONGService {
 		ong.setSenha(senha);
 		
 		ong.setDataCadastro(LocalDateTime.now());
+		ong.setFoto(null);
 		ong.setStatusONG("ATIVO");
 		
 		return ongRepository.save(ong);
