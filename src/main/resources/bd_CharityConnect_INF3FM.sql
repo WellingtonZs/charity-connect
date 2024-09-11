@@ -26,7 +26,6 @@ CREATE TABLE Administrador
 	dataCadastro	DATETIME		    NULL,
 	telefone		VARCHAR(20)		    NOT NULL,
 	nivelAcesso		CHAR(10)		    NULL, --ADMIN ou USER
-	foto			VARBINARY(MAX)	    NULL,
 	statusAdmin		VARCHAR(20)		    NOT NULL,
 )
 
@@ -99,11 +98,11 @@ CREATE TABLE Contato
 
 --ONG:
 INSERT INTO ONG (nome, nomerep, email, senha, telefone, descAtuacao, foto, cep, dataCadastro, sobreNos, uf, cnpj, statusONG) 
-VALUES ('zezo', 'nomerep','aaa@aaa.com', 'NDE5NDM0MTk4', '11952303304', 'somos uma ong teste', null, '1231234', '2021-01-08T00:00:00', 'aaaa', 'rj', '11111111111111', 'ATIVO')
+VALUES ('zezo', 'nomerep','aaa@aaa.com', '111', '11952303304', 'somos uma ong teste', null, '1231234', '2021-01-08T00:00:00', 'aaaa', 'rj', '11111111111111', 'ativo')
 
 --Administrador:
-INSERT INTO Administrador (cpf, email, nome, sobrenome, senha, uf, dataNasc, cep, dataCadastro, telefone, nivelAcesso, foto, statusAdmin) 
-VALUES ('11111111111', 'AA@AA.COM', 'aaa', 'aaa', '11212', 'pe', '2021-01-08T00:00:00', '1234567', '2021-01-08T00:00:00', '11952303304', 'admin', null, 'ativo')
+INSERT INTO Administrador (cpf, email, nome, sobrenome, senha, uf, dataNasc, cep, dataCadastro, telefone, nivelAcesso, statusAdmin) 
+VALUES ('11111111111', 'AA@AA.COM', 'aaa', 'aaa', '11212', 'pe', '2021-01-08T00:00:00', '1234567', '2021-01-08T00:00:00', '11952303304', 'admin', 'ativo')
 
 --Aprovacao:
 INSERT INTO AprovacaoONG (dataAprovacao, statusAprovacao, ong_id, admin_id)
@@ -137,7 +136,6 @@ SELECT * FROM ReprovacaoONG
 --Contato
 SELECT * FROM Contato
 
-delete from ong where id=2
 
 --Alterações feita com base na atualização em andamento do MER/DER, não mexer
 

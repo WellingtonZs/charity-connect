@@ -26,7 +26,6 @@ public class Administrador {
 	private LocalDateTime dataCadastro;
 	private String telefone;
 	private String nivelAcesso;
-	private byte[] foto;
 	private String statusAdmin;
 	
 	
@@ -101,12 +100,6 @@ public class Administrador {
 	}
 	public void setNivelAcesso(String nivelAcesso) {
 		this.nivelAcesso = nivelAcesso;
-	}
-	public byte[] getFoto() {
-		return foto;
-	}
-	public void setFoto(byte[] foto) {
-		this.foto = foto;
 	}
 	public String getStatusAdmin() {
 		return statusAdmin;
