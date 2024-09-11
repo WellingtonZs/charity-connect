@@ -99,7 +99,7 @@ CREATE TABLE Contato
 
 --ONG:
 INSERT INTO ONG (nome, nomerep, email, senha, telefone, descAtuacao, foto, cep, dataCadastro, sobreNos, uf, cnpj, statusONG) 
-VALUES ('zezo', 'nomerep','aaa@aaa.com', '111', '11952303304', 'somos uma ong teste', null, '1231234', '2021-01-08T00:00:00', 'aaaa', 'rj', '11111111111111', 'ativo')
+VALUES ('zezo', 'nomerep','aaa@aaa.com', 'NDE5NDM0MTk4', '11952303304', 'somos uma ong teste', null, '1231234', '2021-01-08T00:00:00', 'aaaa', 'rj', '11111111111111', 'ATIVO')
 
 --Administrador:
 INSERT INTO Administrador (cpf, email, nome, sobrenome, senha, uf, dataNasc, cep, dataCadastro, telefone, nivelAcesso, foto, statusAdmin) 
@@ -137,6 +137,7 @@ SELECT * FROM ReprovacaoONG
 --Contato
 SELECT * FROM Contato
 
+delete from ong where id=2
 
 --Alterações feita com base na atualização em andamento do MER/DER, não mexer
 
