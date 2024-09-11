@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import br.com.inf3fm.charityconnect.entity.ONG;
+import br.com.inf3fm.charityconnect.exception.ResourceNotFoundException;
 import br.com.inf3fm.charityconnect.service.ONGService;
 
 @RestController
@@ -61,15 +62,17 @@ public class ONGController {
 		return new ResponseEntity<ONG>(_ong,HttpStatus.OK);
 	}
 	
-	@PostMapping("signin")
-	public ResponseEntity<?> signin(
-			@RequestParam String email, @RequestParam String senha) {
-		
-		ONG ong = ongService.signin(email, senha);
-		if (ong != null) {
-			return ResponseEntity.ok().body(ong);
+	@PostMapping("/signin")
+	public ResponseEntity<?> signin(@RequestBody ONG ong) {
+
+		ONG _ong = ongService
+				.signin(ong.getEmail(), ong.getSenha());
+
+		if (_ong == null) {
+			throw new ResourceNotFoundException("*** Dados Incorretos! *** ");
 		}
-		return ResponseEntity.badRequest().body("Dados Incorretos!");
+
+		return ResponseEntity.ok(_ong);
 	}
 	
 	@PutMapping("inativar/{id}")
