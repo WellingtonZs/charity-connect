@@ -22,7 +22,7 @@ CREATE TABLE Administrador
 	senha			VARCHAR(100)	    NOT NULL,
 	uf				CHAR(2)			    NOT NULL,
 	dataNasc		DATETIME		    NOT NULL,
-	cep				VARCHAR(8)		    NOT NULL,
+	cep				VARCHAR(7)		    NOT NULL,
 	dataCadastro	DATETIME		    NULL,
 	telefone		VARCHAR(20)		    NOT NULL,
 	nivelAcesso		CHAR(10)		    NULL, --ADMIN ou USER
@@ -39,11 +39,12 @@ CREATE TABLE ONG
 	senha			VARCHAR(100)	    NOT NULL,
 	telefone		VARCHAR(20)		    NOT NULL,
 	descAtuacao		VARCHAR(300)	    NOT NULL,
+    interesse       VARCHAR(300)        NOT NULL,
 	foto			VARBINARY(MAX)	    NULL,
-	cep				VARCHAR(8)		    NOT NULL,
+	cep				VARCHAR(7)		    NOT NULL,
 	dataCadastro	DATETIME		    NOT NULL,
-	sobreNos		VARCHAR(200)	    NOT NULL,
 	uf				CHAR(2)			    NOT NULL,
+    cidade          CHAR(40)            NOT NULL,
 	cnpj			VARCHAR(14)		    NOT NULL,
 	statusONG		VARCHAR(20)		    NOT NULL,
 )
@@ -97,8 +98,8 @@ CREATE TABLE Contato
 --Inserts das Tabelas:
 
 --ONG:
-INSERT INTO ONG (nome, nomerep, email, senha, telefone, descAtuacao, foto, cep, dataCadastro, sobreNos, uf, cnpj, statusONG) 
-VALUES ('zezo', 'nomerep','aaa@aaa.com', '111', '11952303304', 'somos uma ong teste', null, '1231234', '2021-01-08T00:00:00', 'aaaa', 'rj', '11111111111111', 'ativo')
+INSERT INTO ONG (nome, nomerep, email, senha, telefone, descAtuacao, interesse, foto, cep, dataCadastro, uf, cidade, cnpj, statusONG) 
+VALUES ('zezo', 'nomerep','aaa@aaa.com', '111', '11952303304', 'somos uma ong teste', 'teste interesse', null, '1231234', '2021-01-08T00:00:00', 'rj', 'teste', '11111111111111', 'ativo')
 
 --Administrador:
 INSERT INTO Administrador (cpf, email, nome, sobrenome, senha, uf, dataNasc, cep, dataCadastro, telefone, nivelAcesso, statusAdmin) 
@@ -124,7 +125,6 @@ VALUES ('TESTE', '2021-01-08T00:00:00', 'PERGUNTA TESTE', 'NOME', 'SOBRENOME', '
 
 --ONG
 SELECT * FROM ONG
-
 --Administrador
 SELECT * FROM Administrador
 --Categoria
