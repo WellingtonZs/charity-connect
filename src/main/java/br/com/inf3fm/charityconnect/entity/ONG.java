@@ -21,15 +21,14 @@ public class ONG {
 	private String senha;
 	private String telefone;
 	private String descAtuacao;
+	private String interesse;
 	private byte[] foto;
 	private String cep;
 	private LocalDateTime dataCadastro;
-	private String sobreNos;
 	private String uf;
+	private String cidade;
 	private String cnpj;
 	private String statusONG;
-	
-	
 	public long getId() {
 		return id;
 	}
@@ -42,14 +41,12 @@ public class ONG {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
 	public String getNomeRep() {
 		return nomeRep;
 	}
 	public void setNomeRep(String nomeRep) {
 		this.nomeRep = nomeRep;
 	}
-	
 	public String getEmail() {
 		return email;
 	}
@@ -74,6 +71,12 @@ public class ONG {
 	public void setDescAtuacao(String descAtuacao) {
 		this.descAtuacao = descAtuacao;
 	}
+	public String getInteresse() {
+		return interesse;
+	}
+	public void setInteresse(String interesse) {
+		this.interesse = interesse;
+	}
 	public byte[] getFoto() {
 		return foto;
 	}
@@ -92,17 +95,17 @@ public class ONG {
 	public void setDataCadastro(LocalDateTime dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
-	public String getSobreNos() {
-		return sobreNos;
-	}
-	public void setSobreNos(String sobreNos) {
-		this.sobreNos = sobreNos;
-	}
 	public String getUf() {
 		return uf;
 	}
 	public void setUf(String uf) {
 		this.uf = uf;
+	}
+	public String getCidade() {
+		return cidade;
+	}
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
 	}
 	public String getCnpj() {
 		return cnpj;
@@ -116,6 +119,9 @@ public class ONG {
 	public void setStatusONG(String statusONG) {
 		this.statusONG = statusONG;
 	}
+	
+	
+	
 	
 	
 
