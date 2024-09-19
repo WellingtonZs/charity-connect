@@ -44,7 +44,7 @@ CREATE TABLE ONG
 	cep				VARCHAR(8)		    NOT NULL,
 	dataCadastro	DATETIME		    NOT NULL,
 	uf				CHAR(2)			    NOT NULL,
-    cidade          VARCHAR(40)            NOT NULL,
+    cidade          VARCHAR(40)         NOT NULL,
 	cnpj			VARCHAR(14)		    NOT NULL,
 	statusONG		VARCHAR(20)		    NOT NULL,
 )
