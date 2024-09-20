@@ -25,10 +25,11 @@ public class ONG {
 	private byte[] foto;
 	private String cep;
 	private LocalDateTime dataCadastro;
-	private String uf;
 	private String cidade;
 	private String cnpj;
 	private String statusONG;
+	private String endereco;
+	private String bairro;
 	public long getId() {
 		return id;
 	}
@@ -95,12 +96,6 @@ public class ONG {
 	public void setDataCadastro(LocalDateTime dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
-	public String getUf() {
-		return uf;
-	}
-	public void setUf(String uf) {
-		this.uf = uf;
-	}
 	public String getCidade() {
 		return cidade;
 	}
@@ -119,7 +114,18 @@ public class ONG {
 	public void setStatusONG(String statusONG) {
 		this.statusONG = statusONG;
 	}
-	
+	public String getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+	public String getBairro() {
+		return bairro;
+	}
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
 	
 	
 	

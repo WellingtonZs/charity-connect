@@ -43,10 +43,11 @@ CREATE TABLE ONG
 	foto			VARBINARY(MAX)	    NULL,
 	cep				VARCHAR(8)		    NOT NULL,
 	dataCadastro	DATETIME		    NOT NULL,
-	uf				CHAR(2)			    NOT NULL,
     cidade          VARCHAR(40)         NOT NULL,
 	cnpj			VARCHAR(14)		    NOT NULL,
 	statusONG		VARCHAR(20)		    NOT NULL,
+	endereco		VARCHAR(50)			NOT NULL,
+	bairro			VARCHAR(50)			NOT NULL
 )
 
 --AprovacaoONG
@@ -98,8 +99,8 @@ CREATE TABLE Contato
 --Inserts das Tabelas:
 
 --ONG:
-INSERT INTO ONG (nome, nomerep, email, senha, telefone, descAtuacao, interesse, foto, cep, dataCadastro, uf, cidade, cnpj, statusONG) 
-VALUES ('zezo', 'nomerep','aaa@aaa.com', '111', '11952303304', 'somos uma ong teste', 'teste interesse', null, '1231234', '2021-01-08T00:00:00', 'rj', 'teste', '11111111111111', 'ativo')
+INSERT INTO ONG (nome, nomerep, email, senha, telefone, descAtuacao, interesse, foto, cep, dataCadastro, cidade, cnpj, statusONG, endereco, bairro) 
+VALUES ('zezo', 'nomerep','aaa@aaa.com', '111', '11952303304', 'somos uma ong teste', 'teste interesse', null, '1231234', '2021-01-08T00:00:00', 'teste', '11111111111111', 'ativo', 'Estada dos Pinheiros', 'Parque Viana')
 
 --Administrador:
 INSERT INTO Administrador (cpf, email, nome, sobrenome, senha, uf, dataNasc, cep, dataCadastro, telefone, nivelAcesso, statusAdmin) 
