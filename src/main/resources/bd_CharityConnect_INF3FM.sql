@@ -45,6 +45,7 @@ CREATE TABLE ONG
 	dataCadastro	DATETIME		    NOT NULL,
     cidade          VARCHAR(40)         NOT NULL,
 	cnpj			VARCHAR(14)		    NOT NULL,
+	uf				CHAR(2)			    NOT NULL,
 	statusONG		VARCHAR(20)		    NOT NULL,
 	endereco		VARCHAR(50)			NOT NULL,
 	bairro			VARCHAR(50)			NOT NULL
@@ -89,7 +90,7 @@ CREATE TABLE Contato
 	id				BIGINT			    NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	motivoContato	VARCHAR(100)	    NOT NULL,
 	dataContato		DATETIME		    NOT NULL,
-	pergunta		VARCHAR(250)	    NOT NULL,
+	pergunta		VARCHAR(500)	    NOT NULL,
 	nome			CHAR(100)		    NOT NULL,
 	sobrenome		CHAR(100)		    NOT NULL,
 	email			VARCHAR(100)	    NOT NULL,
@@ -99,8 +100,8 @@ CREATE TABLE Contato
 --Inserts das Tabelas:
 
 --ONG:
-INSERT INTO ONG (nome, nomerep, email, senha, telefone, descAtuacao, interesse, foto, cep, dataCadastro, cidade, cnpj, statusONG, endereco, bairro) 
-VALUES ('zezo', 'nomerep','aaa@aaa.com', '111', '11952303304', 'somos uma ong teste', 'teste interesse', null, '1231234', '2021-01-08T00:00:00', 'teste', '11111111111111', 'ativo', 'Estada dos Pinheiros', 'Parque Viana')
+INSERT INTO ONG (nome, nomerep, email, senha, telefone, descAtuacao, interesse, foto, cep, dataCadastro, cidade, cnpj, statusONG, endereco, bairro, uf) 
+VALUES ('zezo', 'nomerep','aaa@aaa.com', '111', '11952303304', 'somos uma ong teste', 'teste interesse', null, '1231234', '2021-01-08T00:00:00', 'teste', '11111111111111', 'ativo', 'Estada dos Pinheiros', 'Parque Viana', 'sp')
 
 --Administrador:
 INSERT INTO Administrador (cpf, email, nome, sobrenome, senha, uf, dataNasc, cep, dataCadastro, telefone, nivelAcesso, statusAdmin) 
