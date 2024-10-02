@@ -17,14 +17,14 @@ CREATE TABLE Administrador
 	id				BIGINT			    NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	cpf				VARCHAR(11)		    NOT NULL,
 	email			VARCHAR(100)	    UNIQUE	 NOT NULL,
-	nome			CHAR(100)		    NOT NULL,
-	sobrenome		CHAR(100)		    NOT NULL,
+	nome			VARCHAR(100)		NOT NULL,
+	sobrenome		VARCHAR(100)		NOT NULL,
 	senha			VARCHAR(100)	    NOT NULL,
 	uf				CHAR(2)			    NOT NULL,
 	dataNasc		DATETIME		    NOT NULL,
-	cep				VARCHAR(7)		    NOT NULL,
+	cep				VARCHAR(9)		    NOT NULL,
 	dataCadastro	DATETIME		    NULL,
-	telefone		VARCHAR(20)		    NOT NULL,
+	telefone		VARCHAR(15)		    NOT NULL,
 	nivelAcesso		CHAR(10)		    NULL, --ADMIN ou USER
 	statusAdmin		VARCHAR(20)		    NOT NULL,
 )
@@ -34,21 +34,21 @@ CREATE TABLE ONG
 (
 	id				BIGINT		    	NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	nome			VARCHAR(100)	    NOT NULL,
-	nomeRep			VARCHAR(100)	        NOT NULL,
-	email			VARCHAR(100)	    UNIQUE	NOT NULL,
+	nomeRep			VARCHAR(100)	    NOT NULL,
+	email			VARCHAR(100)	    UNIQUE	 NOT NULL,
 	senha			VARCHAR(100)	    NOT NULL,
-	telefone		VARCHAR(20)		    NOT NULL,
+	telefone		VARCHAR(15)		    NOT NULL,
 	descAtuacao		VARCHAR(300)	    NOT NULL,
     interesse       VARCHAR(300)        NOT NULL,
 	foto			VARBINARY(MAX)	    NULL,
-	cep				VARCHAR(8)		    NOT NULL,
+	cep				VARCHAR(9)		    NOT NULL,
 	dataCadastro	DATETIME		    NOT NULL,
-    cidade          VARCHAR(40)         NOT NULL,
-	cnpj			VARCHAR(14)		    NOT NULL,
 	uf				CHAR(2)			    NOT NULL,
+    cidade          VARCHAR(40)         NOT NULL,
+	endereco		VARCHAR(40)         NOT NULL,
+	bairro			VARCHAR(40)         NOT NULL,
+	cnpj			VARCHAR(18)		    NOT NULL,
 	statusONG		VARCHAR(20)		    NOT NULL,
-	endereco		VARCHAR(50)			NOT NULL,
-	bairro			VARCHAR(50)			NOT NULL
 )
 
 --AprovacaoONG
@@ -100,8 +100,8 @@ CREATE TABLE Contato
 --Inserts das Tabelas:
 
 --ONG:
-INSERT INTO ONG (nome, nomerep, email, senha, telefone, descAtuacao, interesse, foto, cep, dataCadastro, cidade, cnpj, statusONG, endereco, bairro, uf) 
-VALUES ('zezo', 'nomerep','aaa@aaa.com', '111', '11952303304', 'somos uma ong teste', 'teste interesse', null, '1231234', '2021-01-08T00:00:00', 'teste', '11111111111111', 'ativo', 'Estada dos Pinheiros', 'Parque Viana', 'sp')
+INSERT INTO ONG (nome, nomerep, email, senha, telefone, descAtuacao, interesse, foto, cep, dataCadastro, uf, cidade, endereco, bairro, cnpj, statusONG) 
+VALUES ('zezo', 'nomerep','aaa@aaa.com', '111', '11952303304', 'somos uma ong teste', 'teste interesse', null, '1231234', '2021-01-08T00:00:00', 'rj', 'teste', 'endereco', 'bairro', '11111111111111', 'ativo')
 
 --Administrador:
 INSERT INTO Administrador (cpf, email, nome, sobrenome, senha, uf, dataNasc, cep, dataCadastro, telefone, nivelAcesso, statusAdmin) 
@@ -137,6 +137,8 @@ SELECT * FROM AprovacaoONG
 SELECT * FROM ReprovacaoONG
 --Contato
 SELECT * FROM Contato
+
+DROP TABLE ONG
 
 
 --Alterações feita com base na atualização em andamento do MER/DER, não mexer

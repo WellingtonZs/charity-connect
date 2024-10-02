@@ -27,6 +27,7 @@ public class ONG {
 	private LocalDateTime dataCadastro;
 	private String cidade;
 	private String cnpj;
+	private String uf;
 	private String statusONG;
 	private String endereco;
 	private String bairro;
@@ -108,6 +109,12 @@ public class ONG {
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
+	public String getUf() {
+		return uf;
+	}
+	public void setUf(String uf) {
+		this.uf = uf;
+	}
 	public String getStatusONG() {
 		return statusONG;
 	}
@@ -126,9 +133,8 @@ public class ONG {
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
-	
-	
-	
-	
+
+
+
 
 }
