@@ -13,5 +13,9 @@ public interface ONGRepository extends JpaRepository<ONG, Long> {
 	List<ONG> findAll();
 	
 	ONG findByEmail(String email);
+	
+	List<ONG> findByStatusONGNot(String statusONG);
+	
+	List<ONG> findByStatusONG(String statusONG);
 
 }

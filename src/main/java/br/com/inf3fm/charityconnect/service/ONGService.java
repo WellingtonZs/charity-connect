@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import br.com.inf3fm.charityconnect.entity.ONG;
@@ -25,6 +26,11 @@ public class ONGService {
 
 	public List<ONG> findAll() {
 		List<ONG> ongs = ongRepository.findAll();
+		return ongs;
+	}
+
+	public List<ONG> findAllAprovadas() {
+		List<ONG> ongs = ongRepository.findByStatusONG("Aprovada");
 		return ongs;
 	}
 
@@ -47,7 +53,7 @@ public class ONGService {
 
 		ong.setDataCadastro(LocalDateTime.now());
 		ong.setFoto(null);
-		ong.setStatusONG("ATIVO");
+		ong.setStatusONG("Pendente");
 
 		return ongRepository.save(ong);
 	}
@@ -57,7 +63,7 @@ public class ONGService {
 
 		ONG ong = ongRepository.findByEmail(email);
 		if (ong != null) {
-			if (ong.getStatusONG().equals("ATIVO")) {
+			if (ong.getStatusONG().equals("Aprovada")) {
 				byte[] decodedPass = Base64.getDecoder().decode(ong.getSenha());
 				if (new String(decodedPass).equals(senha)) {
 					return ong;
@@ -73,7 +79,7 @@ public class ONGService {
 
 		if (_ong.isPresent()) {
 			ONG ongAtualizada = _ong.get();
-			ongAtualizada.setStatusONG("INATIVO");
+			ongAtualizada.setStatusONG("Banida");
 
 			return ongRepository.save(ongAtualizada);
 		}
@@ -90,7 +96,7 @@ public class ONGService {
 			String senha = Base64.getEncoder().encodeToString("12345678".getBytes());
 			ongAtualizada.setSenha(senha);
 			ongAtualizada.setDataCadastro(LocalDateTime.now());
-			ongAtualizada.setStatusONG("ATIVO");
+			ongAtualizada.setStatusONG("Aprovada");
 
 			return ongRepository.save(ongAtualizada);
 		}
@@ -110,6 +116,19 @@ public class ONGService {
 		}
 		return null;
 	}
+	
+	@Transactional
+	public ONG alterarStatus(long id, ONG ong) {
+		Optional<ONG> _ong = ongRepository.findById(id);
+
+		if (_ong.isPresent()) {
+			ONG ongAtualizada = _ong.get();
+			ongAtualizada.setStatusONG(ong.getStatusONG());
+			return ongRepository.save(ongAtualizada);
+		}
+		return null;
+	}
+
 
 	public ONG create(MultipartFile file, ONG ong) {
 
@@ -127,7 +146,7 @@ public class ONGService {
 		ong.setSenha(senha);
 
 		ong.setDataCadastro(LocalDateTime.now());
-		ong.setStatusONG("ATIVO");
+		ong.setStatusONG("Pendente");
 
 		return ongRepository.save(ong);
 	}

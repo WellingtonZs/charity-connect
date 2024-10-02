@@ -103,6 +103,9 @@ CREATE TABLE Contato
 INSERT INTO ONG (nome, nomerep, email, senha, telefone, descAtuacao, interesse, foto, cep, dataCadastro, uf, cidade, endereco, bairro, cnpj, statusONG) 
 VALUES ('zezo', 'nomerep','aaa@aaa.com', '111', '11952303304', 'somos uma ong teste', 'teste interesse', null, '1231234', '2021-01-08T00:00:00', 'rj', 'teste', 'endereco', 'bairro', '11111111111111', 'ativo')
 
+INSERT INTO ONG (nome, nomerep, email, senha, telefone, descAtuacao, interesse, foto, cep, dataCadastro, uf, cidade, endereco, bairro, cnpj, statusONG) 
+VALUES ('zezo', 'nomerep','aaa@aaa.com', '111', '11952303304', 'somos uma ong teste', 'teste interesse', null, '1231234', '2021-01-08T00:00:00', 'rj', 'teste', 'endereco', 'bairro', '11111111111111', 'ativo')
+
 --Administrador:
 INSERT INTO Administrador (cpf, email, nome, sobrenome, senha, uf, dataNasc, cep, dataCadastro, telefone, nivelAcesso, statusAdmin) 
 VALUES ('11111111111', 'AA@AA.COM', 'aaa', 'aaa', '11212', 'pe', '2021-01-08T00:00:00', '1234567', '2021-01-08T00:00:00', '11952303304', 'admin', 'ativo')
