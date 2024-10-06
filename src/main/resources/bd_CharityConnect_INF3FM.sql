@@ -101,10 +101,7 @@ CREATE TABLE Contato
 
 --ONG:
 INSERT INTO ONG (nome, nomerep, email, senha, telefone, descAtuacao, interesse, foto, cep, dataCadastro, uf, cidade, endereco, bairro, cnpj, statusONG) 
-VALUES ('zezo', 'nomerep','aaa@aaa.com', '111', '11952303304', 'somos uma ong teste', 'teste interesse', null, '1231234', '2021-01-08T00:00:00', 'rj', 'teste', 'endereco', 'bairro', '11111111111111', 'ativo')
-
-INSERT INTO ONG (nome, nomerep, email, senha, telefone, descAtuacao, interesse, foto, cep, dataCadastro, uf, cidade, endereco, bairro, cnpj, statusONG) 
-VALUES ('zezo', 'nomerep','aaa@aaa.com', '111', '11952303304', 'somos uma ong teste', 'teste interesse', null, '1231234', '2021-01-08T00:00:00', 'rj', 'teste', 'endereco', 'bairro', '11111111111111', 'ativo')
+VALUES ('zezo', 'nomerep','aaa@aaa.com', '111', '11952303304', 'somos uma ong teste', 'teste interesse', null, '1231234', '2021-01-08T00:00:00', 'rj', 'coloque o nome da cidade', 'coloque o endereco', 'coloque o nome do bairro', '11111111111111', 'ativo')
 
 --Administrador:
 INSERT INTO Administrador (cpf, email, nome, sobrenome, senha, uf, dataNasc, cep, dataCadastro, telefone, nivelAcesso, statusAdmin) 
@@ -126,7 +123,7 @@ VALUES ('DINHEIRO OU ROUPA')
 INSERT INTO Contato	(motivoContato, dataContato, pergunta, nome, sobrenome, email, telefone)
 VALUES ('TESTE', '2021-01-08T00:00:00', 'PERGUNTA TESTE', 'NOME', 'SOBRENOME', 'EMAIL@EMAIL.COM', '11952303304')
 
---Selects:
+--Selects básicos:
 
 --ONG
 SELECT * FROM ONG
@@ -141,14 +138,44 @@ SELECT * FROM ReprovacaoONG
 --Contato
 SELECT * FROM Contato
 
-DROP TABLE ONG
+--Selects com atributos específicos:
+
+--Selects de buscas:
+
+--Buscar ONGs pelo ID em ordem numérica:
+SELECT ID, nome, nomeRep, statusONG, dataCadastro FROM ONG ORDER BY id
+--Buscar ADMs pelo ID em ordem numérica:
+SELECT ID, nome, sobrenome, cpf, cep, nivelAcesso, statusAdmin, dataCadastro FROM Administrador ORDER BY id
+--Buscar ONGs pela cidade com ID em ordem numérica:
+SELECT * FROM ONG WHERE cidade = 'coloque o nome da cidade' ORDER BY id
+--Buscar ONGs pelo bairro com ID em ordem numérica:
+SELECT * FROM ONG WHERE bairro = 'coloque o nome do bairro' ORDER BY id
+--Buscar ONGs pelo endereço com ID em ordem numérica:
+SELECT * FROM ONG WHERE endereco = 'coloque o endereco' ORDER BY id
+
+--Selects de listas (utilizando dia/mês/ano):
+
+--Lista de ONGs cadastradas baseadas em DIA MÊS E ANO:
+SELECT * FROM ONG WHERE DAY(dataCadastro) = 8 -- Altere o número entre 1-31 para obter o dia desejado.
+SELECT * FROM ONG WHERE MONTH(dataCadastro) = 1 -- Altere o número entre 1-12 para obter o mês desejado.
+SELECT * FROM ONG WHERE YEAR(dataCadastro) = 2021 -- Altere o ano escrito para obter o ano desejado.
+
+--Lista de ADMs cadastrados baseados em DIA MÊS E ANO:
+SELECT * FROM Administrador WHERE DAY(dataCadastro) = 8 ORDER BY id -- Altere o número entre 1-31 para obter o dia desejado.
+SELECT * FROM Administrador WHERE MONTH(dataCadastro) = 1 ORDER BY id -- Altere o número entre 1-12 para obter o mês desejado.
+SELECT * FROM Administrador WHERE YEAR(dataCadastro) = 2021 ORDER BY id -- Altere o ano escrito para obter o ano desejado.
+
+--Lista dos chamados para contato baseados em DIA MÊS E ANO com ID em ordem numérica:
+SELECT ID, motivoContato, pergunta, nome, sobrenome, email, dataContato FROM Contato WHERE DAY(dataContato) = 8 ORDER BY id -- Altere o número entre 1-31 para obter o dia desejado.
+SELECT ID, motivoContato, pergunta, nome, sobrenome, email, dataContato FROM Contato WHERE MONTH(dataContato) = 1 ORDER BY id -- Altere o número entre 1-12 para obter o mês desejado.
+SELECT ID, motivoContato, pergunta, nome, sobrenome, email, dataContato FROM Contato WHERE YEAR(dataContato) = 2021 ORDER BY id -- Altere o ano escrito para obter o ano desejado.
+
+--Listas dos chamados para contato pelo ID em ordem numérica (sem utilizar dia/mês/ano):
+SELECT ID, motivoContato, pergunta, nome, sobrenome, email, dataContato FROM Contato ORDER BY id
 
 
---Alterações feita com base na atualização em andamento do MER/DER, não mexer
 
-
-
---Protótipo SQL Charity Connect by ZsTech^
+--SQL Charity Connect by ZsTech^
 --https://github.com/WellingtonZs
 
 --__________       ___________           .__       /\  
