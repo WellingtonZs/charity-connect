@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import br.com.inf3fm.charityconnect.entity.ONG;
@@ -124,6 +123,93 @@ public class ONGService {
 		if (_ong.isPresent()) {
 			ONG ongAtualizada = _ong.get();
 			ongAtualizada.setStatusONG(ong.getStatusONG());
+			return ongRepository.save(ongAtualizada);
+		}
+		return null;
+	}
+	
+	@Transactional
+	public ONG update(long id, ONG ong) {
+		//Verifica se o Usuario existe no banco de dados
+		Optional<ONG> _ong = ongRepository.findById(id);
+		
+		if(_ong.isPresent()) {
+			ONG ongAtualizada = _ong.get();
+			
+			// Atualiza os campos necessários, garantindo que não sejam nulos ou indefinidos
+			
+			if(ong.getNome() != null && !ong.getNome().isEmpty()) {
+				ongAtualizada.setNome(ong.getNome());
+			}
+			
+			if(ong.getNomeRep() != null && !ong.getNomeRep().isEmpty()) {
+				ongAtualizada.setNomeRep(ong.getNomeRep());
+			}
+			
+			if(ong.getEmail() != null && !ong.getEmail().isEmpty()) {
+				ongAtualizada.setEmail(ong.getEmail());
+			}
+			
+			if(ong.getTelefone() != null && !ong.getTelefone().isEmpty()) {
+				ongAtualizada.setTelefone(ong.getTelefone());
+			}
+			
+			if(ong.getDescAtuacao() != null && !ong.getDescAtuacao().isEmpty()) {
+				ongAtualizada.setDescAtuacao(ong.getDescAtuacao());
+			}
+			
+			if(ong.getInteresse() != null && !ong.getInteresse().isEmpty()) {
+				ongAtualizada.setInteresse(ong.getInteresse());
+			}
+			
+			if(ong.getCep() != null && !ong.getCep().isEmpty()) {
+				ongAtualizada.setCep(ong.getCep());
+			}
+			
+			if(ong.getCidade() != null && !ong.getCidade().isEmpty()) {
+				ongAtualizada.setCidade(ong.getCidade());
+			}
+			
+			if(ong.getCnpj() != null && !ong.getCnpj().isEmpty()) {
+				ongAtualizada.setCnpj(ong.getCnpj());
+			}
+			
+			if(ong.getUf() != null && !ong.getUf().isEmpty()) {
+				ongAtualizada.setUf(ong.getUf());
+			}
+			
+			if(ong.getEndereco() != null && !ong.getEndereco().isEmpty()) {
+				ongAtualizada.setEndereco(ong.getEndereco());
+			}
+			
+			if(ong.getBairro() != null && !ong.getBairro().isEmpty()) {
+				ongAtualizada.setBairro(ong.getBairro());
+			}
+			
+			// Atualiza o usuário no banco de dados
+			return ongRepository.save(ongAtualizada);
+		}
+		
+		//Se o usuário não for encontrado retorna null ou lança uma exceção
+		return null;
+		
+	}
+	
+	@Transactional
+	public ONG updateFoto(MultipartFile file, long id, ONG ong) {
+		Optional<ONG> _ong = ongRepository.findById(id);
+		
+		if (_ong.isPresent()) {
+			
+			ONG ongAtualizada = _ong.get();
+			
+			if (file != null && file.getSize() > 0) {
+				try {
+					ongAtualizada.setFoto(file.getBytes());
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 			return ongRepository.save(ongAtualizada);
 		}
 		return null;

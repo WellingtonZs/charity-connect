@@ -110,4 +110,13 @@ public class ONGController {
 
 		return new ResponseEntity<ONG>(_ong, HttpStatus.OK);
 	}
+	
+	@PutMapping("update/{id}")
+	
+	public ResponseEntity<?> update(@PathVariable long id, @RequestBody ONG ong) {
+		
+		ONG _ong = ongService.update(id, ong);
+		
+		return new ResponseEntity<ONG>(_ong, HttpStatus.OK);
+	}
 }
