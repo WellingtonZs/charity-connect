@@ -17,7 +17,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import br.com.inf3fm.charityconnect.entity.ONG;
 import br.com.inf3fm.charityconnect.exception.ResourceNotFoundException;
-import br.com.inf3fm.charityconnect.response.MessageResponse;
 import br.com.inf3fm.charityconnect.service.ONGService;
 
 @RestController
@@ -114,12 +113,10 @@ public class ONGController {
 	
 	@PutMapping("update/{id}")
 	
-	public ResponseEntity<?> updateFoto(@PathVariable long id,
-			@RequestParam(value = "file", required = false) MultipartFile file,
-			@ModelAttribute("ong") ONG ong) {
+	public ResponseEntity<?> update(@PathVariable long id, @RequestBody ONG ong) {
 		
-		ongService.updateFoto(file, id, ong);
+		ONG _ong = ongService.update(id, ong);
 		
-		return ResponseEntity.ok().body(new MessageResponse("ONG alterada com sucesso!"));
+		return new ResponseEntity<ONG>(_ong, HttpStatus.OK);
 	}
 }

@@ -202,8 +202,6 @@ public class ONGService {
 		if (_ong.isPresent()) {
 			
 			ONG ongAtualizada = _ong.get();
-			ongAtualizada.setNome(ong.getNome());
-			ongAtualizada.setDescAtuacao(ong.getDescAtuacao());
 			
 			if (file != null && file.getSize() > 0) {
 				try {
