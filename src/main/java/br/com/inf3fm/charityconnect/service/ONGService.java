@@ -6,6 +6,7 @@ import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -15,6 +16,9 @@ import jakarta.transaction.Transactional;
 
 @Service
 public class ONGService {
+	
+	 @Autowired
+	    private EmailService emailService;
 
 	private ONGRepository ongRepository;
 
@@ -116,16 +120,24 @@ public class ONGService {
 		return null;
 	}
 	
+	
 	@Transactional
 	public ONG alterarStatus(long id, ONG ong) {
-		Optional<ONG> _ong = ongRepository.findById(id);
+	    Optional<ONG> _ong = ongRepository.findById(id);
 
-		if (_ong.isPresent()) {
-			ONG ongAtualizada = _ong.get();
-			ongAtualizada.setStatusONG(ong.getStatusONG());
-			return ongRepository.save(ongAtualizada);
-		}
-		return null;
+	    if (_ong.isPresent()) {
+	        ONG ongAtualizada = _ong.get();
+	        ongAtualizada.setStatusONG(ong.getStatusONG());
+
+	        // Enviar e-mail aqui após alterar o status
+	        String assunto = "Alteração de Status da ONG";
+	        String mensagem = "Olá, sua ONG agora está com o status: " + ongAtualizada.getStatusONG();
+
+	        emailService.sendStatusEmail(ongAtualizada.getEmail(), assunto, mensagem);
+
+	        return ongRepository.save(ongAtualizada);
+	    }
+	    return null;
 	}
 	
 	@Transactional
